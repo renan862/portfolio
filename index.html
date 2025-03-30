@@ -1,180 +1,419 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Dev</title>
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Portfólio</title>
+    <!-- Fonte do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- Ícones do Font Awesome (opcional) -->
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
     <style>
-        section {
-            min-height: 100vh;
-            padding: 80px 0;
-        }
-        
-        .nav-link.active {
-            font-weight: bold;
-            color: #0d6efd !important;
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        #inicio {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1920x1080/?coding');
-            background-size: cover;
-            color: white;
+        html,
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f0f;
+            color: #f2f2f2;
+            scroll-behavior: smooth;
+        }
+
+        /* Container principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        /* Navegação */
+        header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
-        .card-project {
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00ffd5;
+            /* cor destaque */
+        }
+
+        nav a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: #f2f2f2;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ffd5;
+        }
+
+        /* Seção Hero (cabeçalho principal) */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #1a1a1a;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Exemplo de pattern no background (opcional) */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png') repeat;
+            opacity: 0.05;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00ffd5;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            padding: 0.8rem 2rem;
+            background-color: #00ffd5;
+            border: none;
+            border-radius: 5px;
+            color: #0f0f0f;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #00ccb0;
+        }
+
+        /* Seção Sobre (About) */
+        #sobre {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        #sobre .texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        #sobre .texto h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #00ffd5;
+        }
+
+        #sobre .texto p {
+            line-height: 1.6;
+        }
+
+        #sobre .imagem {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        #sobre .imagem img {
+            max-width: 100%;
+            border-radius: 10px;
+            border: 2px solid #00ffd5;
+        }
+
+        /* Seção Skills */
+        #skills {
+            margin-bottom: 3rem;
+        }
+
+        #skills h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00ffd5;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .skill-box {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            width: 200px;
             transition: transform 0.3s;
         }
 
-        .card-project:hover {
-            transform: translateY(-10px);
+        .skill-box:hover {
+            transform: translateY(-5px);
         }
 
-        .skill-badge {
+        .skill-box i {
+            font-size: 2.5rem;
+            color: #00ffd5;
+            margin-bottom: 1rem;
+        }
+
+        .skill-box h3 {
             font-size: 1.2rem;
-            margin: 5px;
-            padding: 15px 20px;
+            margin-bottom: 0.5rem;
         }
 
+        .skill-img {
+            left: 100px;
+            height: 100px;
+            width: 100px;
+            margin: 0 auto;
+            max-width: 300px;
+            margin: 0 auto;
+            border-radius: 10px;
+            border: 2px solid #00ffd5;
+        }
+
+        /* Seção Contato */
         #contato {
-            background-color: #f8f9fa;
+            margin-bottom: 3rem;
+        }
+
+        #contato h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #00ffd5;
+        }
+
+        #contato p {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contato-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contato-links a {
+            color: #00ffd5;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .contato-links a:hover {
+            color: #00ccb0;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            #sobre {
+                flex-direction: column;
+            }
+
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar-example">
-    <!-- Navbar -->
-    <nav id="navbar-example" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#">DevPortfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projetos">Projetos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#habilidades">Habilidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Seção Início -->
-    <section id="inicio">
-        <div class="container text-center">
-            <h1 class="display-4 mb-3">João Silva</h1>
-            <p class="lead mb-4">Desenvolvedor Full Stack</p>
-            <a href="#projetos" class="btn btn-primary btn-lg">Ver Projetos</a>
-        </div>
+<body>
+    <!-- Cabeçalho / Navegação -->
+    <header class="container">
+        <div class="logo">SeuNomeDev</div>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#skills">Skills</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+        <h1>Olá, sou Renan</h1>
+        <p>Transformo ideias em código e desafios em soluções.</p>
+        <button onclick="window.location.href='#contato'">Vamos Conversar</button>
     </section>
 
-    <!-- Seção Projetos -->
-    <section id="projetos" class="bg-white">
-        <div class="container">
-            <h2 class="text-center mb-5">Projetos Recentes</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card card-project h-100">
-                        <img src="https://source.unsplash.com/random/800x600/?app" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Sistema de Gestão</h5>
-                            <p class="card-text">Sistema completo para gestão empresarial desenvolvido com React e Node.js</p>
-                            <a href="#" class="btn btn-outline-primary">Ver Projeto</a>
-                        </div>
-                    </div>
+    <div class="container">
+        <!-- Seção Sobre -->
+        <section id="sobre">
+            <div class="texto">
+                <h2>Sobre Mim</h2>
+                <p>
+                    Sou Renan, um desenvolvedor full stack apaixonado por tecnologia, especializado em React Native e
+                    Node.js. <br>Crio aplicações mobile e web com foco em experiência do usuário e performance.
+
+                    Tenho experiência em integração com dispositivos físicos, bancos de dados e otimização de sistemas.
+                    Meu diferencial? Resolver problemas de forma criativa e buscar sempre a melhor solução para cada
+                    projeto. Se você precisa de inovação e eficiência, podemos criar algo incrível juntos.
+                </p>
+            </div>
+            <div class="imagem">
+                <!-- Substitua pela sua própria imagem -->
+                <img src="img/img1.png" alt="Foto sobre mim" />
+            </div>
+        </section>
+        <!-- Seção Skills -->
+        <section id="skills">
+            <h2>Minhas Skills</h2>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <img class="skill-img" src="img/img5.png" alt="">
+                    <h3>JavaScript</h3>
+                    <p>Construção de interfaces dinâmicas e interativas.</p>
                 </div>
-                <!-- Adicione mais 2 cards -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Seção Habilidades -->
-    <section id="habilidades">
-        <div class="container text-center">
-            <h2 class="mb-5">Habilidades</h2>
-            <div class="d-flex flex-wrap justify-content-center">
-                <span class="skill-badge badge bg-primary">JavaScript</span>
-                <span class="skill-badge badge bg-success">React</span>
-                <span class="skill-badge badge bg-danger">Node.js</span>
-                <span class="skill-badge badge bg-warning">Python</span>
-                <!-- Adicione mais habilidades -->
-            </div>
-        </div>
-    </section>
+                <div class="skill-box">
+                    <img class="skill-img" src="img/img4.png" alt="">
+                    <h3>Node.js</h3>
+                    <p>Construção de APIs e serviços escaláveis.</p>
 
-    <!-- Seção Contato -->
-    <section id="contato">
-        <div class="container">
-            <h2 class="text-center mb-5">Contato</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nome" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Mensagem" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
-                    </form>
-                    <div class="text-center mt-4">
-                        <a href="#" class="text-decoration-none me-3">
-                            <i class="fab fa-github fa-2x"></i>
-                        </a>
-                        <a href="#" class="text-decoration-none me-3">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                        <a href="#" class="text-decoration-none">
-                            <i class="fab fa-twitter fa-2x"></i>
-                        </a>
-                    </div>
+                </div>
+                <div class="skill-box">
+                    <img class="skill-img" src="img/img9.png" alt="">
+                    <h3>React Native</h3>
+                    <p>Desenvolvimento de aplicativos móveis multiplataforma.</p>
+                </div>
+                <div class="skill-box">
+
+                  <img class="skill-img" src="img/img8.png" alt="">
+                  <h3>TypeScript</h3>
+                  <p>Criação de layouts responsivos e estilização avançada.</p>
+              </div>
+
+                <div class="skill-box">
+                    <img class="skill-img" src="img/img6.png" alt="">
+                    <h3>Banco de Dados</h3>
+                    <p>Integração e otimização de bancos de dados.</p>
+                </div>
+                
+                <div class="skill-box">
+                    <!-- Substitua o ícone com a classe Font Awesome desejada, por exemplo fa-html5 -->
+                    <img class="skill-img" src="img/img2.png" alt="">
+                    <i class="fab fa-html5"></i>
+                    <h3>AWS</h3>
+                    <p>Desenvolvimento de estruturas semânticas e acessíveis.</p>
+                </div>
+                <div class="skill-box">
+                  <!-- Substitua o ícone com a classe Font Awesome desejada, por exemplo fa-html5 -->
+                  <img class="skill-img" src="img/img3.png" alt="">
+                  <i class="fab fa-html5"></i>
+                  <h3>Python</h3>
+                  <p>Desenvolvimento de estruturas semânticas e acessíveis.</p>
+              </div>
+                
+
+        </section>
+
+        <!-- Seção Hrad Skills -->
+        <section id="skills">
+            <h2>Minhas Hard skills</h2>
+
+            <div class="skills-container">
+                <div class="skill-box">
+                    <!-- Substitua o ícone com a classe Font Awesome desejada, por exemplo fa-html5 -->
+                    <i class="fab fa-html5"></i>
+                    <h3>Pensamento computacional</h3>
+                    <p>Desenvolvimento de estruturas semânticas e acessíveis.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                    <p>Criação de layouts responsivos e estilização avançada.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                    <p>Construção de interfaces dinâmicas e interativas.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                    <p>Desenvolvimento de SPAs e componentes reutilizáveis.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Bootstrap JS e Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Ativar scrollspy
-        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-            target: '#navbar-example'
-        })
+        <!-- Seção Contato -->
+        <section id="contato">
+            <h2>Entre em Contato</h2>
+            <p>Fique à vontade para me enviar uma mensagem!</p>
+            <div class="contato-links">
+                <!-- Exemplo de links de contato -->
+                <a href="mailto:seuemail@exemplo.com" target="_blank" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/seu-perfil" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/seu-usuario" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </section>
+    </div>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Renan. Todos os direitos reservados.</p>
+    </footer>
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso!');
-            this.reset();
-        });
-    </script>
 </body>
+
 </html>
