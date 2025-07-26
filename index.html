@@ -1,426 +1,365 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio</title>
-    <!-- Fonte do Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <!-- Ícones do Font Awesome (opcional) -->
-    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-    <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0f0f0f;
-            color: #f2f2f2;
-            scroll-behavior: smooth;
-        }
-
-        /* Container principal */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 0;
-        }
-
-        /* Navegação */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        header .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #00ffd5;
-            /* cor destaque */
-        }
-
-        nav a {
-            margin-left: 1rem;
-            text-decoration: none;
-            color: #f2f2f2;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #00ffd5;
-        }
-
-        /* Seção Hero (cabeçalho principal) */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 4rem 1rem;
-            background: #1a1a1a;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Exemplo de pattern no background (opcional) */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png') repeat;
-            opacity: 0.05;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #00ffd5;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .hero button {
-            padding: 0.8rem 2rem;
-            background-color: #00ffd5;
-            border: none;
-            border-radius: 5px;
-            color: #0f0f0f;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .hero button:hover {
-            background-color: #00ccb0;
-        }
-
-        /* Seção Sobre (About) */
-        #sobre {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        #sobre .texto {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        #sobre .texto h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #00ffd5;
-        }
-
-        #sobre .texto p {
-            line-height: 1.6;
-        }
-
-        #sobre .imagem {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        #sobre .imagem img {
-            max-width: 100%;
-            border-radius: 10px;
-            border: 2px solid #00ffd5;
-        }
-
-        /* Seção Skills */
-        #skills {
-            margin-bottom: 3rem;
-        }
-
-        #skills h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #00ffd5;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .skill-box {
-            background: #1a1a1a;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            width: 200px;
-            transition: transform 0.3s;
-        }
-
-        .skill-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-box i {
-            font-size: 2.5rem;
-            color: #00ffd5;
-            margin-bottom: 1rem;
-        }
-
-        .skill-box h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-img {
-            left: 100px;
-            height: 100px;
-            width: 100px;
-            margin: 0 auto;
-            max-width: 300px;
-            margin: 0 auto;
-            border-radius: 10px;
-            border: 2px solid #00ffd5;
-        }
-
-        /* Seção Contato */
-        #contato {
-            margin-bottom: 3rem;
-        }
-
-        #contato h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: #00ffd5;
-        }
-
-        #contato p {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .contato-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .contato-links a {
-            color: #00ffd5;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .contato-links a:hover {
-            color: #00ccb0;
-        }
-
-        /* Rodapé */
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            border-top: 1px solid #333;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            #sobre {
-                flex-direction: column;
-            }
-
-            .skills-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-    <!-- Cabeçalho / Navegação -->
-    <header class="container">
-        <div class="logo">SeuNomeDev</div>
-        <nav>
-            <a href="#sobre">Sobre</a>
-            <a href="#skills">Skills</a>
-            <a href="#contato">Contato</a>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">
+                    <span class="logo-text">Portfolio</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contato</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <!-- Seção Hero -->
-    <section class="hero">
-        <h1>Olá, sou Renan</h1>
-        <p>Transformo ideias em código e desafios em soluções.</p>
-        <button onclick="window.location.href='#contato'">Vamos Conversar</button>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Olá, eu sou <span class="highlight">Renan</span>
+                </h1>
+                <p class="hero-subtitle">Software Developer | Desenvolvedor Full Stack</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                    <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-avatar">
+                    <img src="photo.png" alt="Foto de perfil">
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-indicator"></div>
+        </div>
     </section>
 
-    <div class="container">
-        <!-- Seção Sobre -->
-        <section id="sobre">
-            <div class="texto">
-                <h2>Sobre Mim</h2>
-                <p>
-                    Sou Renan, um desenvolvedor full stack apaixonado por tecnologia, especializado em React Native e
-                    Node.js. <br>Crio aplicações mobile e web com foco em experiência do usuário e performance.
-
-                    Tenho experiência em integração com dispositivos físicos, bancos de dados e otimização de sistemas.
-                    Meu diferencial? Resolver problemas de forma criativa e buscar sempre a melhor solução para cada
-                    projeto. Se você precisa de inovação e eficiência, podemos criar algo incrível juntos.
-                </p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">Conheça um pouco mais sobre minha trajetória</p>
             </div>
-            <div class="imagem">
-                <!-- Substitua pela sua própria imagem -->
-                <img src="img/img1.png" alt="Foto sobre mim" />
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Desenvolvedor Full Stack com experiência na criação de aplicações web e mobile. Especializado no ecossistema <strong>Node.js</strong> para o desenvolvimento de <strong>APIs REST</strong> escaláveis e na construção de interfaces com <strong>React</strong> e <strong>React Native</strong>.</p>
+                    <p>Possuo vivência prática com implantação e gerenciamento de bancos de dados em ambientes de nuvem como <strong>AWS</strong> e <strong>Oracle Cloud</strong>, focado em entregar soluções eficientes e de alta performance. Atualmente trabalho como Programador de Sistemas de Informação na HBM Proteção Veicular, onde desenvolvo APIs REST e integro sistemas externos.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>3+</h3>
+                            <p>Anos de Experiência</p>
+                        </div>
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Projetos Desenvolvidos</p>
+                        </div>
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Tecnologias Dominadas</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <!-- Seção Skills -->
-        <section id="skills">
-            <h2>Minhas Skills</h2>
-            <div class="skills-container">
-                <div class="skill-box">
-                    <img class="skill-img" src="img/img5.png" alt="">
-                    <h3>JavaScript</h3>
-                    <p>Construção de interfaces dinâmicas e interativas.</p>
-                </div>
+        </div>
+    </section>
 
-                <div class="skill-box">
-                    <img class="skill-img" src="img/img4.png" alt="">
-                    <h3>Node.js</h3>
-                    <p>Construção de APIs e serviços escaláveis.</p>
-
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="img/img9.png" alt="">
-                    <h3>React Native</h3>
-                    <p>Desenvolvimento de aplicativos móveis multiplataforma.</p>
-                </div>
-                <div class="skill-box">
-
-                  <img class="skill-img" src="img/img8.png" alt="">
-                  <h3>TypeScript</h3>
-                  <p>Criação de layouts responsivos e estilização avançada.</p>
-              </div>
-
-                <div class="skill-box">
-                    <img class="skill-img" src="img/img6.png" alt="">
-                    <h3>Banco de Dados</h3>
-                    <p>Integração e otimização de bancos de dados.</p>
-                </div>
-                
-                <div class="skill-box">
-                    <!-- Substitua o ícone com a classe Font Awesome desejada, por exemplo fa-html5 -->
-                    <img class="skill-img" src="img/img2.png" alt="">
-                    <i class="fab fa-html5"></i>
-                    <h3>AWS</h3>
-                    <p>Utilizar serviços em nuvem para deploy, storage e escalabilidade.</p>
-                </div>
-                <div class="skill-box">
-                  <!-- Substitua o ícone com a classe Font Awesome desejada, por exemplo fa-html5 -->
-                  <img class="skill-img" src="img/img3.png" alt="">
-                  <i class="fab fa-html5"></i>
-                  <h3>Python</h3>
-                  <p>Desenvolver aplicações e manipular, analisar e visualizar dados de forma eficiente.</p>
-              </div>
-                
-
-        </section>
-
-        <!-- Seção soft Skills -->
-        <section id="skills">
-            <h2>Minhas Soft Skills</h2>
-
-            <div class="skills-container">
-                <div class="skill-box">
-                    <!-- Substitua o ícone com a classe Font Awesome desejada, por exemplo fa-html5 -->
-                    <i class="fab fa-html5"></i>
-                    <h3>Pensamento computacional</h3>
-                    <p>Resolver problemas de forma lógica e estruturada.</p>
-                </div>
-                <div class="skill-box">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>Comunicação</h3>
-                    <p>Saber explicar ideias técnicas de forma clara e objetiva.</p>
-                </div>
-                <div class="skill-box">
-                    <i class="fab fa-js-square"></i>
-                    <h3>Resolução de Problemas</h3>
-                    <p>Identificar e solucionar bugs e desafios com pensamento lógico e criatividade.</p>
-                </div>
-                <div class="skill-box">
-                    <i class="fab fa-react"></i>
-                    <h3>Atenção aos Detalhes</h3>
-                    <p>Escrever código limpo e bem estruturado, minimizando erros e melhorando a manutenção.</p>
-                </div>
-                <div class="skill-box">
-                  <i class="fab fa-react"></i>
-                  <h3>Adaptabilidade </h3>
-                  <p>Conseguir lidar com mudanças no projeto, novas ferramentas e diferentes metodologias de trabalho.</p>
-              </div>
-              
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meus Projetos</h2>
+                <p class="section-subtitle">Alguns dos meus trabalhos mais recentes</p>
             </div>
-        </section>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="catalogo-pro.jpg" alt="Catalogo Pro">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                              <!--    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Catalogo Pro</h3>
+                        <p class="project-description">Aplicativo comercial completo desenvolvido do zero utilizando React Native e Expo, com banco de dados na Oracle Cloud e integração WhatsApp para otimização de vendas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Expo</span>
+                            <span class="tech-tag">Oracle Cloud</span>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Seção Contato -->
-        <section id="contato">
-            <h2>Entre em Contato</h2>
-            <p>Fique à vontade para me enviar uma mensagem!</p>
-            <div class="contato-links">
-                <!-- Exemplo de links de contato -->
-                <a href="mailto:seuemail@exemplo.com" target="_blank" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/seu-perfil" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/seu-usuario" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="mini-shop.jpg" alt="APIs REST">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                               <!-- <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema - Mini-Shop</h3>
+                        <p class="project-description">Plataforma de gestão, controle e vendas. Desenvolvida com foco em performance e escalabilidade, utilizando as melhores práticas de desenvolvimento.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">APIs REST</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="bot-wpp.jpg" alt="Bot WhatsApp">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                               <!-- <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bot WhatsApp</h3>
+                        <p class="project-description">Bot de resposta automática para WhatsApp, melhorando o tempo de resposta e a comunicação com os clientes através de automação inteligente.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">WhatsApp API</span>
+                            <span class="tech-tag">n8n</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2025 Renan. Todos os direitos reservados.</p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Minhas Habilidades</h2>
+                <p class="section-subtitle">Tecnologias e ferramentas que utilizo</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend & Mobile</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React Native</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Expo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend & Databases</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>APIs REST</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQLite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Oracle Cloud</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Power BI</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-table"></i>
+                            <span>Excel</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>n8n</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Vamos Conversar</h2>
+                <p class="section-subtitle">Entre em contato para discutir projetos e oportunidades</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>renan.862@live.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p>(21) 99799-9633</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Localização</h3>
+                            <p>Recreio dos Bandeirantes, RJ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form 
+                        id="contact-form"
+                        action="https://formsubmit.co/renan.862@live.com" 
+                        method="POST"
+                    >
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="Nova mensagem do portfólio!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://renan862.github.io/obrigado.html">
+                        
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Seu Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Seu Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Renan Portfólio. Todos os direitos reservados.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/renan862" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/renan-s-160520a3" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
-
 </html>
